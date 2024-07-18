@@ -6,6 +6,7 @@ using Ppr_Model.DBOperations;
 using Microsoft.AspNetCore.Mvc;
 using Ppr_Model.Entity;
 using Ppr_Model.Common;
+using AutoMapper;
 
 namespace Ppr_Model.BookOperations.GetById
 {
@@ -13,12 +14,14 @@ namespace Ppr_Model.BookOperations.GetById
     {
 
         private readonly BookStoreDbContext _dbContext;
+        private readonly IMapper _mapper;
         public int bookId { get; set; }
 
-        public GetById(BookStoreDbContext dbContext, int id)
+        public GetById(BookStoreDbContext dbContext, int id, IMapper mapper)
         {
             bookId = id;
             _dbContext = dbContext;
+            _mapper = mapper;
         }
         public BookViewModel Handle()
         {
@@ -27,18 +30,13 @@ namespace Ppr_Model.BookOperations.GetById
             {
                 throw new InvalidOperationException("Kitap mevcut değil");
             }
-            var model = new BookViewModel {
-                Title = book.Title,
-                Genre = ((GenreEnum)book.GenreId).ToString(),
-                PublishDate = book.PublishDate.ToString("dd/MM/yyyy"),
-                PageCount = book.PageCount
-            };
-            return model;
+            var vm = _mapper.Map<BookViewModel>(book);
+            return vm;
         }
     }
     public class BookViewModel
     {
-        public string? Title { get; set; }
+        public string Title { get; set; }
         public string Genre { get; set; }
         public int PageCount { get; set; }
         public string PublishDate { get; set; }

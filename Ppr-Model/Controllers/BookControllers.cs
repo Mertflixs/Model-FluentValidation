@@ -10,6 +10,7 @@ using Ppr_Model.BookOperations.CreateBook;
 using Ppr_Model.BookOperations.DeleteBook;
 using Ppr_Model.BookOperations.GetById;
 using Ppr_Model.BookOperations.UpdateBook;
+using AutoMapper;
 
 namespace Ppr_Model.Controllers
 {
@@ -18,16 +19,18 @@ namespace Ppr_Model.Controllers
     public class BookControllers : ControllerBase
     {
         private readonly BookStoreDbContext _context;
+        private readonly IMapper _mapper;
 
-        public BookControllers(BookStoreDbContext context)
+        public BookControllers(BookStoreDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet("GetAllBooks")]
         public IActionResult GetBook()
         {
-            GetBooksQuery query = new GetBooksQuery(_context);
+            GetBooksQuery query = new GetBooksQuery(_context, _mapper);
             var res = query.Handle();
             return Ok(res);
         }
@@ -35,7 +38,7 @@ namespace Ppr_Model.Controllers
         [HttpGet("GetBookId/{id}")]
         public IActionResult GetById(int id)
         {
-            GetById query = new GetById(_context, id);
+            GetById query = new GetById(_context, id, _mapper);
             var res = query.Handle();
             return Ok(res);
         }
@@ -51,7 +54,7 @@ namespace Ppr_Model.Controllers
         [HttpPost]
         public IActionResult AddBook([FromBody] CreateBookModel newBook)
         {
-            CreateBook command = new CreateBook(_context);
+            CreateBook command = new CreateBook(_context, _mapper);
             try
             {
                 command.Model = newBook;

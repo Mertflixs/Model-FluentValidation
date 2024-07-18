@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "PYWVxvfhitQ=",
+  "dgSpecHash": "K4K5EnKKR5c=",
   "success": true,
   "projectFilePath": "/Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model-FluentValidation/Ppr-Model/Ppr-Model.csproj",
   "expectedPackageFiles": [
+    "/Users/mertflix/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/mertflix/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "/Users/mertflix/.nuget/packages/fluentvalidation/11.9.2/fluentvalidation.11.9.2.nupkg.sha512",
+    "/Users/mertflix/.nuget/packages/fluentvalidation.aspnetcore/11.3.0/fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "/Users/mertflix/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.5.1/fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "/Users/mertflix/.nuget/packages/microsoft.aspnetcore.openapi/8.0.6/microsoft.aspnetcore.openapi.8.0.6.nupkg.sha512",
+    "/Users/mertflix/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/mertflix/.nuget/packages/microsoft.entityframeworkcore/9.0.0-preview.6.24327.4/microsoft.entityframeworkcore.9.0.0-preview.6.24327.4.nupkg.sha512",
     "/Users/mertflix/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.0-preview.6.24327.4/microsoft.entityframeworkcore.abstractions.9.0.0-preview.6.24327.4.nupkg.sha512",
     "/Users/mertflix/.nuget/packages/microsoft.entityframeworkcore.analyzers/9.0.0-preview.6.24327.4/microsoft.entityframeworkcore.analyzers.9.0.0-preview.6.24327.4.nupkg.sha512",

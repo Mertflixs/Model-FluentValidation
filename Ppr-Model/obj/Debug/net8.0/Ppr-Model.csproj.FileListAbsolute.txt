@@ -88,3 +88,8 @@
 /Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model-FluentValidation/Ppr-Model/obj/Debug/net8.0/Ppr-Model.pdb
 /Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model-FluentValidation/Ppr-Model/obj/Debug/net8.0/Ppr-Model.genruntimeconfig.cache
 /Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model-FluentValidation/Ppr-Model/obj/Debug/net8.0/ref/Ppr-Model.dll
+/Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model-FluentValidation/Ppr-Model/bin/Debug/net8.0/AutoMapper.dll
+/Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model-FluentValidation/Ppr-Model/bin/Debug/net8.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model-FluentValidation/Ppr-Model/bin/Debug/net8.0/FluentValidation.dll
+/Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model-FluentValidation/Ppr-Model/bin/Debug/net8.0/FluentValidation.AspNetCore.dll
+/Users/mertflix/Desktop/ppr-bootcamp/week-3/exam-1/Model-FluentValidation/Ppr-Model/bin/Debug/net8.0/FluentValidation.DependencyInjectionExtensions.dll

@@ -6,6 +6,7 @@ using Ppr_Model.DBOperations;
 using Microsoft.AspNetCore.Mvc;
 using Ppr_Model.Entity;
 using Ppr_Model.Common;
+using AutoMapper;
 
 namespace Ppr_Model.BookOperations.CreateBook
 {
@@ -13,10 +14,12 @@ namespace Ppr_Model.BookOperations.CreateBook
     {
         public CreateBookModel Model { get; set; }
         private readonly BookStoreDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public CreateBook(BookStoreDbContext dbContext)
+        public CreateBook(BookStoreDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public void Handle()
@@ -25,12 +28,13 @@ namespace Ppr_Model.BookOperations.CreateBook
 
             if (book is not null)
                 throw new InvalidOperationException("Mevcut");
-
-            book = new Book();
+            
+            book = _mapper.Map<Book>(Model);
+            /* book = new Book();
             book.Title = Model.Title;
             book.GenreId = Model.GenreId;
             book.PublishDate = Model.PublishDate;
-            book.PageCount = Model.PageCount;
+            book.PageCount = Model.PageCount; */
 
             _dbContext.Books.Add(book);
             _dbContext.SaveChanges();
