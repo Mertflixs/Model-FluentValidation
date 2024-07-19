@@ -11,6 +11,8 @@ using Ppr_Model.BookOperations.DeleteBook;
 using Ppr_Model.BookOperations.GetById;
 using Ppr_Model.BookOperations.UpdateBook;
 using AutoMapper;
+using FluentValidation;
+using FluentValidation.Results;
 
 namespace Ppr_Model.Controllers
 {
@@ -39,8 +41,17 @@ namespace Ppr_Model.Controllers
         public IActionResult GetById(int id)
         {
             GetById query = new GetById(_context, id, _mapper);
-            var res = query.Handle();
-            return Ok(res);
+            try
+            {
+                GetByIdValidator validator = new GetByIdValidator();
+                validator.ValidateAndThrow(query);
+                var res = query.Handle();
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         //fromQuery ile 
@@ -58,7 +69,10 @@ namespace Ppr_Model.Controllers
             try
             {
                 command.Model = newBook;
+                CreateBookValidator validator = new CreateBookValidator();
+                validator.ValidateAndThrow(command);
                 command.Handle();
+
             }
             catch (Exception ex)
             {
@@ -76,6 +90,8 @@ namespace Ppr_Model.Controllers
             try
             {
                 book.Model = newBook;
+                UpdateBookValidator validator = new UpdateBookValidator();
+                validator.ValidateAndThrow(book);
                 book.Handle(id);
             }
             catch (Exception ex)
@@ -91,6 +107,8 @@ namespace Ppr_Model.Controllers
             DeleteBook book = new DeleteBook(_context, id);
             try
             {
+                DeleteBookValidator validator = new DeleteBookValidator();
+                validator.ValidateAndThrow(book);
                 book.Handle();
             }
             catch (Exception ex)
